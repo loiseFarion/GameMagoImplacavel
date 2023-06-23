@@ -1,0 +1,80 @@
+<Joguinho>
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_y: 0.2
+        
+        Label:
+            text: 'Mago Implacável'
+            font_size: 40
+            color: 0.8,1,0
+            
+            
+            
+        Spinner: 
+            id: nivel
+            text: 'Nível'
+            values: ('Dificil','Facil')
+            on_text: root.selDificuldade(nivel.text)
+            background_color : 0, 1, 0, 0.7
+        
+        GridLayout:
+            cols: 3
+            Label:
+                text: 'Nome Mago'
+                background_color : 1, 0, 0, 0.9
+            TextInput:
+                text: 'Digite aqui'
+                id: personagem
+                
+            Button:
+                text: 'Começar!'
+                on_press: root.iniciar()
+                background_color : 1, 0, 0, 0.9
+                
+    BoxLayout: 
+        orientation: 'vertical'
+        size_hint_y: 0.2
+        canvas:
+            Color:
+                rgba: 74/256, 144/256, 226/256, 0.7
+            Rectangle:
+                pos: self.pos
+                size: self.size        
+        Label:
+            text: 'Dados do bicho e da história'
+            id: dadosbh
+            color: 1,1,1,1
+            
+    BoxLayout: 
+        orientation: 'vertical'
+        size_hint_y: 0.2
+        canvas:
+            Color:
+                rgba:  208/256, 2/256, 27/256, 0.7
+            Rectangle:
+                pos: self.pos
+                size: self.size   
+       
+        Label:
+            text: 'Dados do personagem'
+            id: dadosper
+            color: 1,1,1,1
+
+    BoxLayout: 
+        orientation: 'vertical'
+        size_hint_y: 0.4
+        Label:
+            text: 'Controles'
+            
+        BoxLayout:
+            Button:
+                text: 'Atacar'
+                on_press: root.Atacar()
+                background_color : 0, 1, 0, 0.7
+                
+            Button:
+                text: 'Tentar a sorte'
+                on_press: root.tentarsorte()
+                background_color : 0, 0, 1, 0.7
+                
